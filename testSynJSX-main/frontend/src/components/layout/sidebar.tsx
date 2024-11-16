@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   };
 
   return (
-    <div className={`bg-purple-500 h-full ${isOpen ? 'w-[250px]' : 'w-[88px]'} transition-all duration-300 flex flex-col p-3 shadow-lg`}>
+    <div className={`bg-purple-500 h-full ${isOpen ? 'w-[88px]' : 'w-[88px]'} transition-all duration-300 flex flex-col p-3 shadow-lg`}>
       <button onClick={handleToggleSidebar} className="mb-4 p-2 focus:outline-none bg-purple-500 hover:bg-purple-500 rounded-md">
         {isOpen ? <img src="src/assets/icon/close-menu.svg" alt="Close Menu" className="h-10 w-auto" /> : <img src="src/assets/icon/open-menu.svg" alt="Open Menu" className="h-10 w-auto" />}
       </button>
