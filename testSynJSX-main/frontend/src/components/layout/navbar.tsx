@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-[#042354] text-white flex justify-between items-center p-4 ">
+    <div className="bg-orange-500 text-white flex justify-between items-center p-4 ">
       <div className="flex items-center  justify-center p-4 ">
         <span className="ml-4  text-xl">Usuario:</span>
         {/* Muestra el nombre de usuario si está autenticado */}
