@@ -43,32 +43,32 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       </button>
 
       <div className="flex flex-col space-y-4">
-        <button onClick={() => handleNavigation('/dashboard')} className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-gray-300 w-full text-left">
+        <button onClick={() => handleNavigation('/dashboard')} className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-orange-500 w-full text-left">
           <img src="src/assets/icon/projects.svg" alt="Proyectos" className="w-12 h-12" />
           {isOpen && <span className="ml-2 p-2 text-lg font-medium">Proyectos</span>}
         </button>
 
-        <button onClick={() => handleNavigation('/calendar')} className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-gray-300 w-full text-left">
+        <button onClick={() => handleNavigation('/calendar')} className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-orange-500 w-full text-left">
           <img src="src/assets/icon/calendar.svg" alt="Calendar" className="w-12 h-12" />
           {isOpen && <span className="ml-2 p-2 text-lg font-medium">Cronograma</span>}
         </button>
 
-        <button onClick={() => handleNavigation('/board')} className="flex items-center bg-orange-500 rounded-lg shadow-md hover:bg-gray-300 w-full text-left">
+        <button onClick={() => handleNavigation('/board')} className="flex items-center bg-orange-500 rounded-lg shadow-md hover:bg-orange-500 w-full text-left">
           <img src="src/assets/icon/boad.svg" alt="board" className="w-12 h-12" />
           {isOpen && <span className="ml-2 p-2 text-lg font-medium">Tablero</span>}
         </button>
 
-        <button onClick={() => handleNavigation('/planning')} className="flex items-center bg-orange-500 rounded-lg shadow-md hover:bg-gray-300 w-full text-left">
+        <button onClick={() => handleNavigation('/planning')} className="flex items-center bg-orange-500 rounded-lg shadow-md hover:bg-orange-500 w-full text-left">
           <img src="src/assets/icon/plan.svg" alt="palan" className="w-12 h-12" />
           {isOpen && <span className="ml-2 p-2 text-lg font-medium">Planificación de Pruebas</span>}
         </button>
 
-        <button onClick={() => handleNavigation('/exe-test')} className="flex items-center bg-orange-500 rounded-lg shadow-md hover:bg-gray-300 w-full text-left">
+        <button onClick={() => handleNavigation('/exe-test')} className="flex items-center bg-orange-500 rounded-lg shadow-md hover:bg-orange-500 w-full text-left">
           <img src="src/assets/icon/execute.svg" alt="execute" className="w-12 h-12" />
           {isOpen && <span className="ml-2 p-2 text-lg font-medium">Ejecución de Pruebas</span>}
         </button>
 
-        <button onClick={() => handleNavigation('/result')} className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-gray-300 w-full text-left">
+        <button onClick={() => handleNavigation('/result')} className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-orange-500 w-full text-left">
           <img src="src/assets/icon/infop.svg" alt="result" className="w-12 h-12" />
           {isOpen && <span className="ml-2 p-2 text-lg font-medium">Resultados de Proyectos</span>}
         </button>
@@ -76,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       </div>
 
       <div className="space-y-6 mt-auto">
-        <button className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-gray-300 w-full text-left" onClick={() => setShowConfirmLogout(true)}>
+        <button className="flex items-center bg-orange-500 p-2 rounded-lg shadow-md hover:bg-orange-500 w-full text-left" onClick={() => setShowConfirmLogout(true)}>
           <img src="src/assets/icon/logout.svg" alt="Salir" className="w-12 h-12" />
           {isOpen && <span className="ml-2 p-2 text-lg font-medium">Cerrar Sesión</span>}
         </button>
