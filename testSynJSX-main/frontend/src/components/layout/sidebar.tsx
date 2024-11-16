@@ -83,14 +83,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       </div>
 
       {showConfirmLogout && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-orange-500 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg z-60">
             <h2 className="text-xl mb-4">¿Seguro que quieres cerrar la sesión?</h2>
             <div className="flex justify-between">
               <button className="bg-[#042354] hover:bg-[#28559c] text-white px-4 py-2 rounded " onClick={handleLogout}>
                 Cerrar Sesión
               </button>
-              <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400" onClick={() => setShowConfirmLogout(false)}>
+              <button className="bg-orange-500 text-gray-700 px-4 py-2 rounded hover:bg-orange-500" onClick={() => setShowConfirmLogout(false)}>
                 Cancelar
               </button>
             </div>
