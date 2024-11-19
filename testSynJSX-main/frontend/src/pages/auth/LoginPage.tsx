@@ -40,7 +40,7 @@ function LoginPage() {
           <FormLogin />
 
           <p className="mt-6 text-gray-600 text-sm text-center">
-            ¿Eres nuevo en TestSync?{' '}
+            ¿Eres nuevo en S-G-P?{' '}
             <a href="/register" className="text-[#042354] hover:text-[#28559c] text-sm ">
               <b>Regístrate aquí</b>
             </a>
