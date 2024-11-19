@@ -27,7 +27,7 @@ function LoginPage() {
         <div className="w-full max-w-sm">
           {/* Centrar solo la imagen */}
           <div className="flex justify-center mb-6">
-            <img src="src/assets/icon/color-logo.svg" width="150px" alt="logo" />
+            <img src="src/assets/icon/S-G-P.png" width="150px" alt="logo" />
           </div>
           <h1 className="text-3xl font-bold text-[#042354] mb-4 text-center">
             Inicio de Sesión
