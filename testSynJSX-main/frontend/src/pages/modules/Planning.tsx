@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect, useCallback } from 'react';
 import NewPlanModal from '../../components/projects/modals/NewPlanModal';
-import PlanCard from '../../components/projects/cards/PlanCards'; 
-import { AuthContext } from '../../context/AuthContext'; 
+import PlanCard from '../../components/projects/cards/PlanCards';
+import { AuthContext } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
 import { getProjectsAssignedAndCreatedByUser } from '../../services/projectService';
 import { getTestPlansByProject, deleteTestPlan } from '../../services';
-import ModalUpdatePlan from '../../components/projects/modals/ModalUpdatePlan'; 
-import ConfirmDeletePlan from '../../components/shared/ConfirmDeletePlan'; 
+import ModalUpdatePlan from '../../components/projects/modals/ModalUpdatePlan';
+import ConfirmDeletePlan from '../../components/shared/ConfirmDeletePlan';
 import NewTestCaseModal from '../../components/testCases/NewTestCaseModal'; // Asegúrate de importar el modal
 
 const Planning: React.FC = () => {
@@ -16,14 +16,14 @@ const Planning: React.FC = () => {
   const { user, token } = authContext || {};
   const userId = user?.user_id;
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [showModal, setShowModal] = useState(false); 
-  const [showUpdateModal, setShowUpdateModal] = useState(false); 
-  const [plans, setPlans] = useState<any[]>([]); 
-  const [planToEdit, setPlanToEdit] = useState<any | null>(null); 
+  const [showModal, setShowModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [plans, setPlans] = useState<any[]>([]);
+  const [planToEdit, setPlanToEdit] = useState<any | null>(null);
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
-  const [planIdToDelete, setPlanIdToDelete] = useState<number | null>(null); 
-  const [showNewTestCaseModal, setShowNewTestCaseModal] = useState(false); 
-  const [testPlanIdForNewTestCase, setTestPlanIdForNewTestCase] = useState<number | null>(null); 
+  const [planIdToDelete, setPlanIdToDelete] = useState<number | null>(null);
+  const [showNewTestCaseModal, setShowNewTestCaseModal] = useState(false);
+  const [testPlanIdForNewTestCase, setTestPlanIdForNewTestCase] = useState<number | null>(null);
 
   const loadProjects = useCallback(async () => {
     if (!userId || !token) return;
@@ -73,7 +73,7 @@ const Planning: React.FC = () => {
     setPlans([]);
 
     if (project) {
-      setSelectedProject(project);  
+      setSelectedProject(project);
       await loadPlans(selectedProjectId);
     } else {
       setPlans([]);
@@ -83,7 +83,7 @@ const Planning: React.FC = () => {
   };
 
   const handleOpenNewPlanModal = () => {
-    setShowModal(true); 
+    setShowModal(true);
   };
 
   const handleAddTestPlan = (newTestPlan: any) => {
@@ -92,12 +92,12 @@ const Planning: React.FC = () => {
   };
 
   const handleEditPlan = (planData: any) => {
-    setPlanToEdit(planData); 
-    setShowUpdateModal(true); 
+    setPlanToEdit(planData);
+    setShowUpdateModal(true);
   };
 
   const handleDeletePlan = (testPlanId: number) => {
-    setPlanIdToDelete(testPlanId); 
+    setPlanIdToDelete(testPlanId);
     setShowConfirmationDialog(true);
   };
 
@@ -181,10 +181,10 @@ const Planning: React.FC = () => {
                     p_end_date={plan.end_date}
                     document_url={plan.document_url}
                     p_status={plan.status}
-                    test_plan_id={plan.test_plan_id} 
-                    onOpenConfirmDelete={() => handleDeletePlan(plan.test_plan_id)} 
-                    onOpenTaskModal={() => {}} // Cambia esto a una función vacía
-                    onEditPlan={handleEditPlan} 
+                    test_plan_id={plan.test_plan_id}
+                    onOpenConfirmDelete={() => handleDeletePlan(plan.test_plan_id)}
+                    onOpenTaskModal={() => { }} // Cambia esto a una función vacía
+                    onEditPlan={handleEditPlan}
                   />
                 ))
               ) : (
@@ -196,29 +196,29 @@ const Planning: React.FC = () => {
       )}
 
       {showModal && selectedProject && (
-        <NewPlanModal 
-          projectId={selectedProject.project_id} 
-          addTestPlan={handleAddTestPlan} 
-          closeModal={() => setShowModal(false)} 
+        <NewPlanModal
+          projectId={selectedProject.project_id}
+          addTestPlan={handleAddTestPlan}
+          closeModal={() => setShowModal(false)}
         />
       )}
 
       {showUpdateModal && planToEdit && (
-        <ModalUpdatePlan 
-          closeModal={() => setShowUpdateModal(false)} 
-          planData={planToEdit} 
-          projectId={selectedProject?.project_id || 0} 
+        <ModalUpdatePlan
+          closeModal={() => setShowUpdateModal(false)}
+          planData={planToEdit}
+          projectId={selectedProject?.project_id || 0}
         />
       )}
 
       {showNewTestCaseModal && selectedProject && (
-        <NewTestCaseModal 
+        <NewTestCaseModal
           projectId={selectedProject.project_id}
           testPlanId={testPlanIdForNewTestCase} // Pasa el ID del plan de prueba al modal
-          onClose={() => setShowNewTestCaseModal(false)} 
+          onClose={() => setShowNewTestCaseModal(false)}
           onCreate={(newTestCase) => {
-            console.log('Nuevo caso de prueba creado:', newTestCase); 
-          }} 
+            console.log('Nuevo caso de prueba creado:', newTestCase);
+          }}
         />
       )}
 
@@ -226,7 +226,7 @@ const Planning: React.FC = () => {
         <ConfirmDeletePlan
           projectName={plans.find(plan => plan.test_plan_id === planIdToDelete)?.plan_name || ''}
           onConfirm={confirmDeletePlan}
-          onCancel={() => setShowConfirmationDialog(false)} 
+          onCancel={() => setShowConfirmationDialog(false)}
         />
       )}
     </div>
