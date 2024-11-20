@@ -15,6 +15,7 @@ import testImagesRoute from '../route/testImagesRoute.js';
 import testCommentsRoute from '../route/testCommentsRoute.js';
 import projectAssignmentsCommentsRoute from '../route/projectAssignmentsCommentsRoute.js';
 import defectRoute from '../route/defectRoute.js'
+import { analyzeCode } from '../controller/AnalyzeCodeController.js';
 
 
 const app = express();
@@ -22,10 +23,10 @@ const app = express();
 app.use(cors());
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // Reemplaza con el dominio permitido
-    methods: 'GET,POST,PUT,DELETE', // Métodos HTTP permitidos
-    allowedHeaders: 'Content-Type,Authorization, x-access-token', // Headers permitidos
-  };
+  origin: 'http://localhost:5173', // Reemplaza con el dominio permitido
+  methods: 'GET,POST,PUT,DELETE', // Métodos HTTP permitidos
+  allowedHeaders: 'Content-Type,Authorization, x-access-token', // Headers permitidos
+};
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -49,6 +50,7 @@ app.use('/api/test-cases', testCasesRoute);
 app.use('/api/test-images', testImagesRoute);
 app.use('/api/test-comments', testCommentsRoute);
 app.use('/api/defects', defectRoute);
+app.use('/api/analyze-code');
 
 
 export default app;
