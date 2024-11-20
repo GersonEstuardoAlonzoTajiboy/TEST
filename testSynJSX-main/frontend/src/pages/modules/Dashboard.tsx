@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useCallback } from 'react';
 import ProjectCard from '../../components/projects/cards/ProjectCards';
 import NewProjectModal from '../../components/projects/modals/NewProjectModal';
 import ProjectFilters from '../../components/projects/filters/ProjectFilters';
-import { AuthContext } from '../../context/AuthContext'; 
+import { AuthContext } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
 import { getProjectsAssignedAndCreatedByUser } from '../../services/projectService';
 
@@ -14,7 +14,7 @@ interface Project {
   end_date: string;
   status: string;
   pm_id: string;
-  role?: string;  
+  role?: string;
 }
 
 const Dashboard: React.FC = () => {
@@ -49,25 +49,25 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     let filtered = [...projects];
-  
+
     // Filtro por estado
     if (filters.status) {
       filtered = filtered.filter((project) => project.status === filters.status);
     }
-  
+
     // Filtro para proyectos "Creados" si el usuario es PM del proyecto
     if (filters.created) {
-      filtered = filtered.filter((project) => String(project.pm_id) === String(userId)); 
+      filtered = filtered.filter((project) => String(project.pm_id) === String(userId));
     }
-  
+
     // Filtro para proyectos "Asignados" si el rol del usuario no es 'PM'
     if (filters.assigned) {
-      filtered = filtered.filter((project) => project.role && project.role !== 'PM'); 
+      filtered = filtered.filter((project) => project.role && project.role !== 'PM');
     }
-  
+
     setFilteredProjects(filtered);
   }, [filters, projects, userId]);
-  
+
   const handleDeleteProject = (projectId: number) => {
     setProjects((prevProjects) => prevProjects.filter((project) => project.project_id !== projectId));
     setFilteredProjects((prevProjects) => prevProjects.filter((project) => project.project_id !== projectId));
@@ -81,12 +81,12 @@ const Dashboard: React.FC = () => {
         <div className="flex items-center gap-4">
           <ProjectFilters
             onFilterChange={(newFilters) => {
-              setFilters(newFilters); 
+              setFilters(newFilters);
             }}
           />
 
           <button
-            onClick={loadProjects}  
+            onClick={loadProjects}
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
             Actualizar Dashboard
@@ -117,14 +117,14 @@ const Dashboard: React.FC = () => {
           ) : (
             filteredProjects.map((project, index) => (
               <ProjectCard
-                key={`${project.project_id}-${index}`} 
+                key={`${project.project_id}-${index}`}
                 projectId={project.project_id}
                 p_title={project.project_name}
                 p_pm_id={project.pm_id}
                 p_description={project.description}
                 p_status={project.status}
                 p_end_date={project.end_date}
-                userRoleInProject={project.role}  
+                userRoleInProject={project.role}
                 onProjectDeleted={handleDeleteProject}
               />
             ))
@@ -135,8 +135,8 @@ const Dashboard: React.FC = () => {
       {showModal && (
         <NewProjectModal
           addProject={() => {
-            setShowModal(false);  
-            loadProjects();       
+            setShowModal(false);
+            loadProjects();
           }}
           closeModal={() => setShowModal(false)}
         />

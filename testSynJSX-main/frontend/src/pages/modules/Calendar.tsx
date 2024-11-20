@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { useMeetings } from '../../context/MeetingsContext';
 import MeetingForm from '../../components/forms/MeetingForm';
 import EditMeeting from '../../components/projects/edits/EditMeeting';
-import {  registerMeeting, updateMeeting } from '../../services/meetingService'; 
+import { registerMeeting, updateMeeting } from '../../services/meetingService';
 import { getProjectsAssignedAndCreatedByUser } from '../../services/projectService'; // Importa el servicio para proyectos
 
 const CustomCalendar: React.FC = () => {
