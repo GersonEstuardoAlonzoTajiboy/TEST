@@ -50,7 +50,7 @@ app.use('/api/test-cases', testCasesRoute);
 app.use('/api/test-images', testImagesRoute);
 app.use('/api/test-comments', testCommentsRoute);
 app.use('/api/defects', defectRoute);
-app.use('/api/analyze-code');
+app.use('/api/analyze-code', analyzeCode);
 
 
 export default app;
