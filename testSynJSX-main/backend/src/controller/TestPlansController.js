@@ -97,7 +97,6 @@ export const updateTestPlan = async (req, res, next) => {
   }
 };
 
-
 // Eliminar un plan de pruebas
 export const deleteTestPlan = async (req, res, next) => {
   try {
@@ -122,14 +121,14 @@ export const deleteTestPlan = async (req, res, next) => {
 // Obtener planes de pruebas por usuario
 export const getTestPlansByUser = async (req, res, next) => {
   try {
-      const userId = req.user.user_id; // Asegúrate de que esto está bien
-      const testPlans = await TestPlans.sequelize.query('CALL procedure_to_get_test_plans_by_user(:p_user_id)', {
-          replacements: { p_user_id: userId },
-      });
+    const userId = req.user.user_id; // Asegúrate de que esto está bien
+    const testPlans = await TestPlans.sequelize.query('CALL procedure_to_get_test_plans_by_user(:p_user_id)', {
+      replacements: { p_user_id: userId },
+    });
 
-      return res.status(200).json(testPlans);
+    return res.status(200).json(testPlans);
   } catch (error) {
-      console.error('Error al obtener los planes de pruebas:', error);
-      return res.status(500).json({ message: 'Error interno del servidor.' });
+    console.error('Error al obtener los planes de pruebas:', error);
+    return res.status(500).json({ message: 'Error interno del servidor.' });
   }
 };
