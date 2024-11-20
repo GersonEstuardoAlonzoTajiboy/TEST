@@ -293,21 +293,21 @@ const Board: React.FC = () => {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {Object.keys(groupedTasks).map((status) => (
-  <div key={status}>
-    <h2 className="text-xl font-bold mb-4">{status}</h2>
-    {groupedTasks[status].map((task, index) => (
-  <AssignmentCard
-  key={task.task_id}
-  taskDescription={task.task_name}
-  taskStatus={task.status}
-  assignedAt={task.assignedAt}
-  assignedToUserName={task.assignedToUserName}
-  onMoveTask={() => handleMoveTask(task)}
-  onViewTaskDetails={() => handleViewTaskDetails(task)}
-  userRole={selectedProject?.role || 'guest'}
-/>
-))}
+        {Object.keys(groupedTasks).map((status) => (
+          <div key={status}>
+            <h2 className="text-xl font-bold mb-4">{status}</h2>
+            {groupedTasks[status].map((task, index) => (
+              <AssignmentCard
+                key={task.task_id}
+                taskDescription={task.task_name}
+                taskStatus={task.status}
+                assignedAt={task.assignedAt}
+                assignedToUserName={task.assignedToUserName}
+                onMoveTask={() => handleMoveTask(task)}
+                onViewTaskDetails={() => handleViewTaskDetails(task)}
+                userRole={selectedProject?.role || 'guest'}
+              />
+            ))}
 
 
 
