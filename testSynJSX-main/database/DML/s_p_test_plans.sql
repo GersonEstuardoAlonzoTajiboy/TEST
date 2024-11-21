@@ -142,16 +142,3 @@ BEGIN
     COMMIT;
 END //
 DELIMITER ;
-
-CALL procedure_to_get_test_plans(1);
-CALL procedure_to_register_test_plans(
-    1,                             
-    3,                           
-    'Plan de Pruebas de Integración',
-    'Pruebas de Integración',     
-    'Pruebas para validar la integración de módulos del sistema.',
-    '2024-11-20',                  
-    '2024-12-01',                  
-    'documento_pruebas.pdf',       
-    'Pending'                     
-);
