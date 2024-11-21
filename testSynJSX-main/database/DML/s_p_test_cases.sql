@@ -29,14 +29,6 @@ BEGIN
 END //
 DELIMITER ;
 
-
-
-
-
-
-
-
-
 DELIMITER //
 CREATE PROCEDURE procedure_to_register_test_case(
     IN p_test_plan_id INT,

@@ -1,7 +1,6 @@
 USE TestSync;
 
 #APROBADO
-# Procedure to register test_plans
 DELIMITER //
 CREATE PROCEDURE procedure_to_register_test_plans(
     IN p_project_id INT,
@@ -31,7 +30,6 @@ BEGIN
     COMMIT;
 END //
 DELIMITER ;
-
 
 #APROBADO
 DELIMITER //
@@ -67,7 +65,6 @@ BEGIN
 END //
 DELIMITER ;
 
-
 #APROBADO
 DELIMITER //
 CREATE PROCEDURE procedure_to_delete_test_plan(IN p_test_plan_id INT)
@@ -85,7 +82,6 @@ BEGIN
     COMMIT;
 END //
 DELIMITER ;
-
 
 #APROBADO
 DELIMITER //
@@ -116,8 +112,6 @@ BEGIN
     COMMIT;
 END //
 DELIMITER ;
-
-
 
 #APROBADO
 DELIMITER //

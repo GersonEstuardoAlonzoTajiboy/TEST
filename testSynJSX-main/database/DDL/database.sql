@@ -11,6 +11,7 @@ CREATE TABLE Users (
   password VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 #CHEQUEADA
 CREATE TABLE Projects (
   project_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -23,6 +24,7 @@ CREATE TABLE Projects (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (pm_id) REFERENCES Users(user_id)
 );
+
 #CHEQUEADA
 CREATE TABLE Project_Roles (
   project_role_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,6 +35,7 @@ CREATE TABLE Project_Roles (
   FOREIGN KEY (user_id) REFERENCES Users(user_id),
   FOREIGN KEY (project_id) REFERENCES Projects(project_id)
 );
+
 #CHEQUEADA
 CREATE TABLE Test_Plans (
   test_plan_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -44,6 +47,7 @@ CREATE TABLE Test_Plans (
   FOREIGN KEY (project_id) REFERENCES Projects(project_id),
   FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
 #CHEQUEADA
 CREATE TABLE Test_Cases (
 	  test_case_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,6 +60,7 @@ CREATE TABLE Test_Cases (
 	  FOREIGN KEY (test_plan_id) REFERENCES Test_Plans(test_plan_id),
 	  FOREIGN KEY (project_role_id) REFERENCES Project_Roles(project_role_id)  -- Referencia a Project_Roles
 	);
+
 #CHEQUEADA
 CREATE TABLE commentsTestCase (
     comment_id INT AUTO_INCREMENT PRIMARY KEY,  -- ID único del comentario
@@ -64,6 +69,7 @@ CREATE TABLE commentsTestCase (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Fecha y hora en que se hizo el comentario
     FOREIGN KEY (test_case_id) REFERENCES Test_Cases(test_case_id)  -- Relación con la tabla Test_Cases
 );
+
 #CHEQUEADA
 CREATE TABLE Test_Images (
 	test_image_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -71,6 +77,7 @@ CREATE TABLE Test_Images (
     image LONGBLOB,
     FOREIGN KEY (test_case_id) REFERENCES Test_Cases(test_case_id)
 );
+
 #CHEQUEADA
 CREATE TABLE Defects (
   defect_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -81,6 +88,7 @@ CREATE TABLE Defects (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (test_case_id) REFERENCES Test_Cases(test_case_id)
 );
+
 #CHEQUEADA
 CREATE TABLE Project_Assignments (
   assignment_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -95,6 +103,7 @@ CREATE TABLE Project_Assignments (
   FOREIGN KEY (project_id) REFERENCES Projects(project_id),
   FOREIGN KEY (project_role_id) REFERENCES Project_Roles(project_role_id)
 );
+
 #CHEQUEADA
 CREATE TABLE Project_Assignments_Comments (
   project_assignments_comments_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -105,6 +114,7 @@ CREATE TABLE Project_Assignments_Comments (
   FOREIGN KEY (user_id) REFERENCES Users(user_id),
   FOREIGN KEY (assignment_id) REFERENCES Project_Assignments(assignment_id)
 );
+
 #CHEQUEADA
 CREATE TABLE Meetings (
 	meeting_id INT PRIMARY KEY AUTO_INCREMENT,
