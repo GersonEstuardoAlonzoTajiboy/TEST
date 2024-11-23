@@ -1,6 +1,5 @@
 import TestPlans from '../model/TestPlans.js';
 
-
 // Registrar un plan de pruebas
 export const registerTestPlan = async (req, res, next) => {
   try {
