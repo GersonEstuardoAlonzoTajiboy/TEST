@@ -59,7 +59,7 @@ export const getTestCasesByTestPlan = async (req, res) => {
 export const updateTestCase = async (req, res) => {
   try {
     // Log para verificar qué parámetros y datos están llegando al servidor
-    console.log('Parámetros recibidos:', req.params); 
+    console.log('Parámetros recibidos:', req.params);
     console.log('Cuerpo de la solicitud:', req.body);
 
     const { p_test_case_id } = req.params;  // Accedemos al ID usando p_test_case_id, como llega en los parámetros
