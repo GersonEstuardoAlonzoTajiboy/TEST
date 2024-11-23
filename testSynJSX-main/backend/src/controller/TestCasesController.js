@@ -27,8 +27,6 @@ export const registerTestCase = async (req, res) => {
   }
 };
 
-
-
 // Obtener casos de prueba de un plan de pruebas
 export const getTestCasesByTestPlan = async (req, res) => {
   const { test_plan_id } = req.params; // Obtener el ID del plan de prueba desde los parámetros
