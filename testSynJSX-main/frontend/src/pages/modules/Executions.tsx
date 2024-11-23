@@ -118,7 +118,7 @@ const Executions: React.FC = () => {
   };
 
   const handleUpdateTestCase = (updatedDetails: { description: string; status: string; priority: string }) => {
- 
+
 
   };
 
@@ -170,7 +170,7 @@ const Executions: React.FC = () => {
                   priority={testCase.priority}
                   createdAt={testCase.createdAt}
                   onUpdate={handleUpdateTestCase}
-                  onExecute={() => {}}
+                  onExecute={() => { }}
                   userRole={userRole}
                   token={token}
                   userId={userId} // Asegúrate de pasar el userId también
@@ -191,7 +191,7 @@ const Executions: React.FC = () => {
                   priority={testCase.priority}
                   createdAt={testCase.createdAt}
                   onUpdate={handleUpdateTestCase}
-                  onExecute={() => {}}
+                  onExecute={() => { }}
                   userRole={userRole}
                   token={token}
                   userId={userId} // Asegúrate de pasar el userId también
@@ -212,7 +212,7 @@ const Executions: React.FC = () => {
                   priority={testCase.priority}
                   createdAt={testCase.createdAt}
                   onUpdate={handleUpdateTestCase}
-                  onExecute={() => {}}
+                  onExecute={() => { }}
                   userRole={userRole}
                   token={token}
                   userId={userId} // Asegúrate de pasar el userId también
